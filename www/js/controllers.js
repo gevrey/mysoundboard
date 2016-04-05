@@ -41,6 +41,7 @@ angular.module('mysoundboard.controllers', [])
 		// $scope.$apply(function() {
 		// 	$scope.cordova.loaded = true;
 		// });
+		$scope.cordova.loaded = true;
 		console.log('Ready!');
 	});
 
