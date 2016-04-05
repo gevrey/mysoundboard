@@ -42,7 +42,6 @@ angular.module('mysoundboard.controllers', [])
 		// 	$scope.cordova.loaded = true;
 		// });
 		$scope.cordova.loaded = true;
-		console.log('Ready!');
 	});
 
 })
@@ -115,14 +114,22 @@ angular.module('mysoundboard.controllers', [])
 	};
 
 	var captureSuccess = function(e) {
+		alert('Success!');
 		console.log('captureSuccess');console.dir(e);
 		$scope.sound.file = e[0].localURL;
 		$scope.sound.filePath = e[0].fullPath;
 	};
 
+
+	if (typeof navigator.device == "undefined") {
+	   alert("device undefined");
+	}
+
+	//alert(typeof navigator.device);
+
 	$scope.record = function() {
 		navigator.device.capture.captureAudio(
-    		captureSuccess,captureError,{duration:10});
+    		captureSuccess,captureError,{duration:2});
 	};
 
 	$scope.play = function() {
